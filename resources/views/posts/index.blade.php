@@ -7,6 +7,10 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
+        <x-app-layout>
+            <x-slot name="header">
+                　Index
+            </x-slot>
         <h1>Blog Name</h1>
         <a href = "/posts/create">create</a>
         <div class='posts'>
@@ -34,5 +38,14 @@
                 }
             }
         </script>
+        <div class = 'userName'>ログインユーザー: {{ Auth::user()->name }}</div>
+        </x-app-layout>
+        <div>
+            @foreach($questions as $question)
+                <a href="https://teratail.com/questions/{{ $question['id'] }}">
+                    <div>{{ $question['title'] }}</div>
+                </a> 
+            @endforeach
+        </div>
     </body>
 </html>
